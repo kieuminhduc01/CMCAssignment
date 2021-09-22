@@ -1,0 +1,15 @@
+D:\CMC\Assigment\MemberManagement\Data\bin\Debug\net5.0\Data.deps.json
+D:\CMC\Assigment\MemberManagement\Data\bin\Debug\net5.0\Data.runtimeconfig.json
+D:\CMC\Assigment\MemberManagement\Data\bin\Debug\net5.0\Data.runtimeconfig.dev.json
+D:\CMC\Assigment\MemberManagement\Data\bin\Debug\net5.0\Data.dll
+D:\CMC\Assigment\MemberManagement\Data\bin\Debug\net5.0\ref\Data.dll
+D:\CMC\Assigment\MemberManagement\Data\bin\Debug\net5.0\Data.pdb
+D:\CMC\Assigment\MemberManagement\Data\obj\Debug\net5.0\Data.csproj.AssemblyReference.cache
+D:\CMC\Assigment\MemberManagement\Data\obj\Debug\net5.0\Data.GeneratedMSBuildEditorConfig.editorconfig
+D:\CMC\Assigment\MemberManagement\Data\obj\Debug\net5.0\Data.AssemblyInfoInputs.cache
+D:\CMC\Assigment\MemberManagement\Data\obj\Debug\net5.0\Data.AssemblyInfo.cs
+D:\CMC\Assigment\MemberManagement\Data\obj\Debug\net5.0\Data.csproj.CoreCompileInputs.cache
+D:\CMC\Assigment\MemberManagement\Data\obj\Debug\net5.0\Data.dll
+D:\CMC\Assigment\MemberManagement\Data\obj\Debug\net5.0\ref\Data.dll
+D:\CMC\Assigment\MemberManagement\Data\obj\Debug\net5.0\Data.pdb
+D:\CMC\Assigment\MemberManagement\Data\obj\Debug\net5.0\Data.genruntimeconfig.cache

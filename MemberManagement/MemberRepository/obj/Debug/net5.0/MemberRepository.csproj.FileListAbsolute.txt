@@ -1,0 +1,17 @@
+D:\CMC\Assigment\MemberManagement\MemberRepository\bin\Debug\net5.0\MemberRepository.deps.json
+D:\CMC\Assigment\MemberManagement\MemberRepository\bin\Debug\net5.0\MemberRepository.dll
+D:\CMC\Assigment\MemberManagement\MemberRepository\bin\Debug\net5.0\ref\MemberRepository.dll
+D:\CMC\Assigment\MemberManagement\MemberRepository\bin\Debug\net5.0\MemberRepository.pdb
+D:\CMC\Assigment\MemberManagement\MemberRepository\bin\Debug\net5.0\Data.dll
+D:\CMC\Assigment\MemberManagement\MemberRepository\bin\Debug\net5.0\Data.pdb
+D:\CMC\Assigment\MemberManagement\MemberRepository\obj\Debug\net5.0\MemberRepository.csproj.AssemblyReference.cache
+D:\CMC\Assigment\MemberManagement\MemberRepository\obj\Debug\net5.0\MemberRepository.GeneratedMSBuildEditorConfig.editorconfig
+D:\CMC\Assigment\MemberManagement\MemberRepository\obj\Debug\net5.0\MemberRepository.AssemblyInfoInputs.cache
+D:\CMC\Assigment\MemberManagement\MemberRepository\obj\Debug\net5.0\MemberRepository.AssemblyInfo.cs
+D:\CMC\Assigment\MemberManagement\MemberRepository\obj\Debug\net5.0\MemberRepository.csproj.CoreCompileInputs.cache
+D:\CMC\Assigment\MemberManagement\MemberRepository\obj\Debug\net5.0\MemberRepository.csproj.CopyComplete
+D:\CMC\Assigment\MemberManagement\MemberRepository\obj\Debug\net5.0\MemberRepository.dll
+D:\CMC\Assigment\MemberManagement\MemberRepository\obj\Debug\net5.0\ref\MemberRepository.dll
+D:\CMC\Assigment\MemberManagement\MemberRepository\obj\Debug\net5.0\MemberRepository.pdb
+D:\CMC\Assigment\MemberManagement\MemberRepository\bin\Debug\net5.0\Common.dll
+D:\CMC\Assigment\MemberManagement\MemberRepository\bin\Debug\net5.0\Common.pdb

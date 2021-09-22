@@ -1,0 +1,12 @@
+D:\CMC\Assigment\MemberManagement\Common\bin\Debug\net5.0\Common.deps.json
+D:\CMC\Assigment\MemberManagement\Common\bin\Debug\net5.0\Common.dll
+D:\CMC\Assigment\MemberManagement\Common\bin\Debug\net5.0\ref\Common.dll
+D:\CMC\Assigment\MemberManagement\Common\bin\Debug\net5.0\Common.pdb
+D:\CMC\Assigment\MemberManagement\Common\obj\Debug\net5.0\Common.csproj.AssemblyReference.cache
+D:\CMC\Assigment\MemberManagement\Common\obj\Debug\net5.0\Common.GeneratedMSBuildEditorConfig.editorconfig
+D:\CMC\Assigment\MemberManagement\Common\obj\Debug\net5.0\Common.AssemblyInfoInputs.cache
+D:\CMC\Assigment\MemberManagement\Common\obj\Debug\net5.0\Common.AssemblyInfo.cs
+D:\CMC\Assigment\MemberManagement\Common\obj\Debug\net5.0\Common.csproj.CoreCompileInputs.cache
+D:\CMC\Assigment\MemberManagement\Common\obj\Debug\net5.0\Common.dll
+D:\CMC\Assigment\MemberManagement\Common\obj\Debug\net5.0\ref\Common.dll
+D:\CMC\Assigment\MemberManagement\Common\obj\Debug\net5.0\Common.pdb

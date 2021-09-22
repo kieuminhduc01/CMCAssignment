@@ -1,0 +1,517 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\CMC\\Assigment\\MemberManagement\\AssignmentForMemeberManagement\\AssignmentForMemeberManagement.csproj": {}
+  },
+  "projects": {
+    "D:\\CMC\\Assigment\\MemberManagement\\AssignmentForMemeberManagement\\AssignmentForMemeberManagement.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\CMC\\Assigment\\MemberManagement\\AssignmentForMemeberManagement\\AssignmentForMemeberManagement.csproj",
+        "projectName": "AssignmentForMemeberManagement",
+        "projectPath": "D:\\CMC\\Assigment\\MemberManagement\\AssignmentForMemeberManagement\\AssignmentForMemeberManagement.csproj",
+        "packagesPath": "C:\\Users\\kieum\\.nuget\\packages\\",
+        "outputPath": "D:\\CMC\\Assigment\\MemberManagement\\AssignmentForMemeberManagement\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\kieum\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "D:\\CMC\\Assigment\\MemberManagement\\AuthenticateService\\AuthenticateService.csproj": {
+                "projectPath": "D:\\CMC\\Assigment\\MemberManagement\\AuthenticateService\\AuthenticateService.csproj"
+              },
+              "D:\\CMC\\Assigment\\MemberManagement\\MemberService\\MemberService.csproj": {
+                "projectPath": "D:\\CMC\\Assigment\\MemberManagement\\MemberService\\MemberService.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[10.3.3, )"
+            },
+            "FluentValidation.AspNetCore": {
+              "target": "Package",
+              "version": "[10.3.3, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[5.0.10, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[5.6.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.303\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\CMC\\Assigment\\MemberManagement\\AuthenticateService\\AuthenticateService.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\CMC\\Assigment\\MemberManagement\\AuthenticateService\\AuthenticateService.csproj",
+        "projectName": "AuthenticateService",
+        "projectPath": "D:\\CMC\\Assigment\\MemberManagement\\AuthenticateService\\AuthenticateService.csproj",
+        "packagesPath": "C:\\Users\\kieum\\.nuget\\packages\\",
+        "outputPath": "D:\\CMC\\Assigment\\MemberManagement\\AuthenticateService\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\kieum\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "D:\\CMC\\Assigment\\MemberManagement\\Common\\Common.csproj": {
+                "projectPath": "D:\\CMC\\Assigment\\MemberManagement\\Common\\Common.csproj"
+              },
+              "D:\\CMC\\Assigment\\MemberManagement\\Data\\Data.csproj": {
+                "projectPath": "D:\\CMC\\Assigment\\MemberManagement\\Data\\Data.csproj"
+              },
+              "D:\\CMC\\Assigment\\MemberManagement\\MemberRepository\\MemberRepository.csproj": {
+                "projectPath": "D:\\CMC\\Assigment\\MemberManagement\\MemberRepository\\MemberRepository.csproj"
+              },
+              "D:\\CMC\\Assigment\\MemberManagement\\TokenRepository\\TokenRepository.csproj": {
+                "projectPath": "D:\\CMC\\Assigment\\MemberManagement\\TokenRepository\\TokenRepository.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.10, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[6.12.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.303\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\CMC\\Assigment\\MemberManagement\\Common\\Common.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\CMC\\Assigment\\MemberManagement\\Common\\Common.csproj",
+        "projectName": "Common",
+        "projectPath": "D:\\CMC\\Assigment\\MemberManagement\\Common\\Common.csproj",
+        "packagesPath": "C:\\Users\\kieum\\.nuget\\packages\\",
+        "outputPath": "D:\\CMC\\Assigment\\MemberManagement\\Common\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\kieum\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.303\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\CMC\\Assigment\\MemberManagement\\Data\\Data.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\CMC\\Assigment\\MemberManagement\\Data\\Data.csproj",
+        "projectName": "Data",
+        "projectPath": "D:\\CMC\\Assigment\\MemberManagement\\Data\\Data.csproj",
+        "packagesPath": "C:\\Users\\kieum\\.nuget\\packages\\",
+        "outputPath": "D:\\CMC\\Assigment\\MemberManagement\\Data\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\kieum\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.10, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.10, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.10, )"
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+              "target": "Package",
+              "version": "[5.0.10, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.303\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\CMC\\Assigment\\MemberManagement\\MemberRepository\\MemberRepository.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\CMC\\Assigment\\MemberManagement\\MemberRepository\\MemberRepository.csproj",
+        "projectName": "MemberRepository",
+        "projectPath": "D:\\CMC\\Assigment\\MemberManagement\\MemberRepository\\MemberRepository.csproj",
+        "packagesPath": "C:\\Users\\kieum\\.nuget\\packages\\",
+        "outputPath": "D:\\CMC\\Assigment\\MemberManagement\\MemberRepository\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\kieum\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "D:\\CMC\\Assigment\\MemberManagement\\Common\\Common.csproj": {
+                "projectPath": "D:\\CMC\\Assigment\\MemberManagement\\Common\\Common.csproj"
+              },
+              "D:\\CMC\\Assigment\\MemberManagement\\Data\\Data.csproj": {
+                "projectPath": "D:\\CMC\\Assigment\\MemberManagement\\Data\\Data.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.303\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\CMC\\Assigment\\MemberManagement\\MemberService\\MemberService.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\CMC\\Assigment\\MemberManagement\\MemberService\\MemberService.csproj",
+        "projectName": "MemberService",
+        "projectPath": "D:\\CMC\\Assigment\\MemberManagement\\MemberService\\MemberService.csproj",
+        "packagesPath": "C:\\Users\\kieum\\.nuget\\packages\\",
+        "outputPath": "D:\\CMC\\Assigment\\MemberManagement\\MemberService\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\kieum\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "D:\\CMC\\Assigment\\MemberManagement\\AuthenticateService\\AuthenticateService.csproj": {
+                "projectPath": "D:\\CMC\\Assigment\\MemberManagement\\AuthenticateService\\AuthenticateService.csproj"
+              },
+              "D:\\CMC\\Assigment\\MemberManagement\\Common\\Common.csproj": {
+                "projectPath": "D:\\CMC\\Assigment\\MemberManagement\\Common\\Common.csproj"
+              },
+              "D:\\CMC\\Assigment\\MemberManagement\\Data\\Data.csproj": {
+                "projectPath": "D:\\CMC\\Assigment\\MemberManagement\\Data\\Data.csproj"
+              },
+              "D:\\CMC\\Assigment\\MemberManagement\\MemberRepository\\MemberRepository.csproj": {
+                "projectPath": "D:\\CMC\\Assigment\\MemberManagement\\MemberRepository\\MemberRepository.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[10.3.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.303\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\CMC\\Assigment\\MemberManagement\\TokenRepository\\TokenRepository.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\CMC\\Assigment\\MemberManagement\\TokenRepository\\TokenRepository.csproj",
+        "projectName": "TokenRepository",
+        "projectPath": "D:\\CMC\\Assigment\\MemberManagement\\TokenRepository\\TokenRepository.csproj",
+        "packagesPath": "C:\\Users\\kieum\\.nuget\\packages\\",
+        "outputPath": "D:\\CMC\\Assigment\\MemberManagement\\TokenRepository\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\kieum\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "D:\\CMC\\Assigment\\MemberManagement\\Data\\Data.csproj": {
+                "projectPath": "D:\\CMC\\Assigment\\MemberManagement\\Data\\Data.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.303\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

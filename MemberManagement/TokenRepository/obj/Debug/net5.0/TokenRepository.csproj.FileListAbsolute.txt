@@ -1,0 +1,15 @@
+D:\CMC\Assigment\MemberManagement\TokenRepository\bin\Debug\net5.0\TokenRepository.deps.json
+D:\CMC\Assigment\MemberManagement\TokenRepository\bin\Debug\net5.0\TokenRepository.dll
+D:\CMC\Assigment\MemberManagement\TokenRepository\bin\Debug\net5.0\ref\TokenRepository.dll
+D:\CMC\Assigment\MemberManagement\TokenRepository\bin\Debug\net5.0\TokenRepository.pdb
+D:\CMC\Assigment\MemberManagement\TokenRepository\bin\Debug\net5.0\Data.dll
+D:\CMC\Assigment\MemberManagement\TokenRepository\bin\Debug\net5.0\Data.pdb
+D:\CMC\Assigment\MemberManagement\TokenRepository\obj\Debug\net5.0\TokenRepository.csproj.AssemblyReference.cache
+D:\CMC\Assigment\MemberManagement\TokenRepository\obj\Debug\net5.0\TokenRepository.GeneratedMSBuildEditorConfig.editorconfig
+D:\CMC\Assigment\MemberManagement\TokenRepository\obj\Debug\net5.0\TokenRepository.AssemblyInfoInputs.cache
+D:\CMC\Assigment\MemberManagement\TokenRepository\obj\Debug\net5.0\TokenRepository.AssemblyInfo.cs
+D:\CMC\Assigment\MemberManagement\TokenRepository\obj\Debug\net5.0\TokenRepository.csproj.CoreCompileInputs.cache
+D:\CMC\Assigment\MemberManagement\TokenRepository\obj\Debug\net5.0\TokenRepository.csproj.CopyComplete
+D:\CMC\Assigment\MemberManagement\TokenRepository\obj\Debug\net5.0\TokenRepository.dll
+D:\CMC\Assigment\MemberManagement\TokenRepository\obj\Debug\net5.0\ref\TokenRepository.dll
+D:\CMC\Assigment\MemberManagement\TokenRepository\obj\Debug\net5.0\TokenRepository.pdb
