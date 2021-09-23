@@ -112,6 +112,7 @@ namespace AssignmentForMemeberManagement
         private void AddValidation(IServiceCollection services)
         {
             services.AddTransient<IValidator<MemberCreateVM>, CreateMemberValidator>();
+            services.AddTransient<IValidator<MemberUpdateVM>, UpdateMemberValidator>();
         }
         #endregion
 
