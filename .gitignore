@@ -1,2 +1,6 @@
 ﻿*.cache
 *.v2
+MemberManagement/WebAPI/bin
+MemberManagement/Infrastructure/bin
+MemberManagement/Domain/bin
+MemberManagement/Application/bin
