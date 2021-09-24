@@ -18,5 +18,15 @@
         public static readonly string GetSuccessfully = " Get successfully ";
         public static readonly string CouldNotFound = " Could not found ";
         public static readonly string ArgumentCanNotBeNull = " Argument can not be null ";
+
+        //Valid or invalid message
+        public static readonly string EmailInvalid = " The Email invalid ";
+        public static readonly string EmailExist = " The Email already exist ";
+        public static readonly string PhoneNumberInvalid = " The phone number invalid ";
+        public static readonly string GenderInvalid = " Gender invalid ";
+
+        //Error exception
+        public static readonly string InternalException = " Internal server error ";
+
     }
 }

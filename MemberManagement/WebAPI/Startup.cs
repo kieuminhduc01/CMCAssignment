@@ -1,3 +1,4 @@
+using Application.AutoMappers;
 using Application.Common.Interfaces.Repositories.MemberRepo;
 using Application.Common.Interfaces.Repositories.TokenRepo;
 using Application.Common.Interfaces.Services.MemberServices;
@@ -22,6 +23,7 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System;
 using System.Text;
+using WebAPI.Extensions;
 
 namespace WebAPI
 {
@@ -41,6 +43,7 @@ namespace WebAPI
             AddDependencyInjection(services);
             services.AddDbContext<DataContext>(option => option.UseNpgsql(Configuration.GetConnectionString("DatabaseConnection")));
 
+            services.AddAutoMapper(typeof(AutoMapperMember).Assembly);
             services.AddControllers().AddFluentValidation();
             AddAuthentication(services);
 
@@ -63,8 +66,9 @@ namespace WebAPI
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "WebAPI v1"));
             }
-            app.UseHttpsRedirection();
+            app.ConfigureExceptionHandler();
 
+            app.UseHttpsRedirection();
             app.UseRouting();
 
             app.UseAuthentication();

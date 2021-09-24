@@ -24,6 +24,7 @@ namespace Infrastructure.Repositories.MemberRepositories
 
         public int AddNewMember(Member prMember)
         {
+            prMember.Password = Encoding.MD5Hash(prMember.Password);
             _context.Members.Add(prMember);
             return _context.SaveChanges();
         }

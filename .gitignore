@@ -1,0 +1,10 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/MemberManagement/Application/obj/Debug/net5.0
+/MemberManagement/Application/bin/Debug/net5.0
+/MemberManagement/Application/obj
+MemberManagement/Domain/bin
+MemberManagement/Infrastructure/bin
+MemberManagement/WebAPI/bin

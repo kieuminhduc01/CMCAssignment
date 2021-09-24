@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "vPDCCxN/NCxWemHEWA0LDDtx1fbCb1tlCQRge5WPHvbbjf8Z644waUu8+x07dgBadpO+6L96rT9McBP7KhAtGA==",
+  "dgSpecHash": "56RBf6dpkuYKihhBP/OA3H/Rfk6Xy2AR0YmS1g6wT+pKiJeqRB2Hb3UMn424jyjdFIrV0hODbcQxmrsvvLff4Q==",
   "success": true,
   "projectFilePath": "D:\\CMC\\Assigment\\MemberManagement\\Domain\\Domain.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\kieum\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
+    "C:\\Users\\kieum\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.1\\automapper.extensions.microsoft.dependencyinjection.8.1.1.nupkg.sha512",
     "C:\\Users\\kieum\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\kieum\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\kieum\\.nuget\\packages\\microsoft.entityframeworkcore\\5.0.10\\microsoft.entityframeworkcore.5.0.10.nupkg.sha512",
@@ -26,6 +28,7 @@
     "C:\\Users\\kieum\\.nuget\\packages\\system.collections.immutable\\5.0.0\\system.collections.immutable.5.0.0.nupkg.sha512",
     "C:\\Users\\kieum\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512",
     "C:\\Users\\kieum\\.nuget\\packages\\system.diagnostics.diagnosticsource\\5.0.1\\system.diagnostics.diagnosticsource.5.0.1.nupkg.sha512",
+    "C:\\Users\\kieum\\.nuget\\packages\\system.reflection.emit\\4.7.0\\system.reflection.emit.4.7.0.nupkg.sha512",
     "C:\\Users\\kieum\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.6.0\\system.runtime.compilerservices.unsafe.4.6.0.nupkg.sha512"
   ],
   "logs": []

@@ -20,32 +20,20 @@ namespace WebAPI.Controllers
         public IActionResult Login(LoginRequestDto parLogin)
         {
             var result = _authenticateService.GetJWT(parLogin);
-            if (result.IsSuccess)
-            {
-                return Ok(result);
-            }
-            return NotFound(result);
+            return Ok(result);
         }
         [HttpPut("refresh")]
         [AllowAnonymous]
         public IActionResult RefreshToken(RefreshTokenDto authenticateRequest)
         {
             var result = _authenticateService.VerifyJWT(authenticateRequest);
-            if (result.IsSuccess)
-            {
-                return Ok(result);
-            }
-            return BadRequest(result);
+            return Ok(result);
         }
         [HttpPut("logout")]
         public IActionResult RevokeToken(RefreshTokenDto authenticateRequest)
         {
             var result = _authenticateService.RevokeToken(authenticateRequest);
-            if (result)
-            {
-                return Ok(result);
-            }
-            return NotFound(result);
+            return Ok(result);
         }
     }
 }
