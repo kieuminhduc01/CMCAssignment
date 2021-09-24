@@ -18,7 +18,7 @@ namespace AssignmentForMemeberManagement.Controllers
         {
             _memberService = memberService;
         }
-        [HttpPost("register")]
+        [HttpPost]
         [AllowAnonymous]
         public IActionResult Register(MemberCreateVM parMember)
         {
@@ -29,7 +29,7 @@ namespace AssignmentForMemeberManagement.Controllers
             }
             return BadRequest(result);
         }
-        [HttpGet("get-member-info/{email}")]
+        [HttpGet("{email}")]
         public IActionResult GetMemberInfo(string email)
         {
             try
@@ -58,7 +58,7 @@ namespace AssignmentForMemeberManagement.Controllers
                 return BadRequest(result);
             }
         }
-        [HttpPut("update")]
+        [HttpPut]
         public IActionResult GetMemberInfo(MemberUpdateVM parMember)
         {
             try

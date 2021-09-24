@@ -12,8 +12,6 @@
   <ItemGroup>
     <ProjectReference Include="..\Common\Common.csproj" />
     <ProjectReference Include="..\Data\Data.csproj" />
-    <ProjectReference Include="..\MemberRepository\MemberRepository.csproj" />
-    <ProjectReference Include="..\TokenRepository\TokenRepository.csproj" />
   </ItemGroup>
 
 </Project>

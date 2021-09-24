@@ -317,33 +317,6 @@
         "runtime": {
           "bin/placeholder/Data.dll": {}
         }
-      },
-      "MemberRepository/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v5.0",
-        "dependencies": {
-          "Common": "1.0.0",
-          "Data": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/MemberRepository.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/MemberRepository.dll": {}
-        }
-      },
-      "TokenRepository/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v5.0",
-        "dependencies": {
-          "Data": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/TokenRepository.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/TokenRepository.dll": {}
-        }
       }
     }
   },
@@ -1012,26 +985,14 @@
       "type": "project",
       "path": "../Data/Data.csproj",
       "msbuildProject": "../Data/Data.csproj"
-    },
-    "MemberRepository/1.0.0": {
-      "type": "project",
-      "path": "../MemberRepository/MemberRepository.csproj",
-      "msbuildProject": "../MemberRepository/MemberRepository.csproj"
-    },
-    "TokenRepository/1.0.0": {
-      "type": "project",
-      "path": "../TokenRepository/TokenRepository.csproj",
-      "msbuildProject": "../TokenRepository/TokenRepository.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net5.0": [
       "Common >= 1.0.0",
       "Data >= 1.0.0",
-      "MemberRepository >= 1.0.0",
       "Microsoft.EntityFrameworkCore >= 5.0.10",
-      "System.IdentityModel.Tokens.Jwt >= 6.12.2",
-      "TokenRepository >= 1.0.0"
+      "System.IdentityModel.Tokens.Jwt >= 6.12.2"
     ]
   },
   "packageFolders": {
@@ -1071,12 +1032,6 @@
             },
             "D:\\CMC\\Assigment\\MemberManagement\\Data\\Data.csproj": {
               "projectPath": "D:\\CMC\\Assigment\\MemberManagement\\Data\\Data.csproj"
-            },
-            "D:\\CMC\\Assigment\\MemberManagement\\MemberRepository\\MemberRepository.csproj": {
-              "projectPath": "D:\\CMC\\Assigment\\MemberManagement\\MemberRepository\\MemberRepository.csproj"
-            },
-            "D:\\CMC\\Assigment\\MemberManagement\\TokenRepository\\TokenRepository.csproj": {
-              "projectPath": "D:\\CMC\\Assigment\\MemberManagement\\TokenRepository\\TokenRepository.csproj"
             }
           }
         }
