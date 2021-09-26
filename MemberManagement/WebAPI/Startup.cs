@@ -8,13 +8,16 @@ using Application.Dtos.MemberDtos;
 using Domain.Data;
 using FluentValidation;
 using FluentValidation.AspNetCore;
+using Infrastructure;
 using Infrastructure.Repositories.MemberRepositories;
 using Infrastructure.Repositories.TokenRepositories;
 using Infrastructure.Services.AuthenticateServices;
 using Infrastructure.Services.MemberServices;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -40,7 +43,7 @@ namespace WebAPI
         public void ConfigureServices(IServiceCollection services)
         {
 
-            AddDependencyInjection(services);
+            services.AddDependencyInjection();
             services.AddDbContext<DataContext>(option => option.UseNpgsql(Configuration.GetConnectionString("DatabaseConnection")));
 
             services.AddAutoMapper(typeof(AutoMapperMember).Assembly);
@@ -73,20 +76,12 @@ namespace WebAPI
 
             app.UseAuthentication();
             app.UseAuthorization();
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
             });
         }
         #region Private function
-        private void AddDependencyInjection(IServiceCollection services)
-        {
-            services.AddScoped<IAuthenticateService, AuthenticateServiceImp>();
-            services.AddScoped<IMemberService, MemberServiceImp>();
-            services.AddScoped<IMemberRepo, MemberRepoImp>();
-            services.AddScoped<ITokenRepo, TokenRepoImp>();
-        }
         private void AddAuthentication(IServiceCollection services)
         {
             var tokenValidationParameter = new TokenValidationParameters()
