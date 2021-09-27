@@ -2,14 +2,15 @@
 using Domain.Data;
 using Domain.Entities;
 using Infrastructure.Common;
+using Infrastructure.Data;
 using System.Linq;
 
 namespace Infrastructure.Repositories.MemberRepositories
 {
     public class MemberRepoImp:IMemberRepo
     {
-        private readonly DataContext _context;
-        public MemberRepoImp(DataContext context)
+        private readonly ApplicationDBContext _context;
+        public MemberRepoImp(ApplicationDBContext context)
         {
             _context = context;
         }

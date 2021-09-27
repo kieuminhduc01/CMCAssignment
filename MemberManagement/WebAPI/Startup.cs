@@ -1,23 +1,12 @@
+using Application;
 using Application.AutoMappers;
-using Application.Common.Interfaces.Repositories.MemberRepo;
-using Application.Common.Interfaces.Repositories.TokenRepo;
-using Application.Common.Interfaces.Services.MemberServices;
-using Application.Common.Interfaces.Services.TokenServices;
-using Application.Common.Validators.MemberValidators;
-using Application.Dtos.MemberDtos;
 using Domain.Data;
-using FluentValidation;
 using FluentValidation.AspNetCore;
 using Infrastructure;
-using Infrastructure.Repositories.MemberRepositories;
-using Infrastructure.Repositories.TokenRepositories;
-using Infrastructure.Services.AuthenticateServices;
-using Infrastructure.Services.MemberServices;
+using Infrastructure.Data;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -44,16 +33,16 @@ namespace WebAPI
         {
 
             services.AddDependencyInjection();
-            services.AddDbContext<DataContext>(option => option.UseNpgsql(Configuration.GetConnectionString("DatabaseConnection")));
+            services.AddDbContext<ApplicationDBContext>(option => option.UseNpgsql(Configuration.GetConnectionString("DatabaseConnection")));
 
             services.AddAutoMapper(typeof(AutoMapperMember).Assembly);
             services.AddControllers().AddFluentValidation();
             AddAuthentication(services);
 
-            AddValidation(services);
+            services.AddValidation();
             services.AddControllers();
 
-            services.AddTransient<DataContext>();
+            services.AddTransient<ApplicationDBContext>();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "WebAPI", Version = "v1" });
@@ -81,6 +70,7 @@ namespace WebAPI
                 endpoints.MapControllers();
             });
         }
+
         #region Private function
         private void AddAuthentication(IServiceCollection services)
         {
@@ -106,11 +96,6 @@ namespace WebAPI
                 jwt.SaveToken = true;
                 jwt.TokenValidationParameters = tokenValidationParameter;
             });
-        }
-        private void AddValidation(IServiceCollection services)
-        {
-            services.AddTransient<IValidator<MemberCreatingDto>, MemberCreatingValidator>();
-            services.AddTransient<IValidator<MemberUpdatingDto>, MemberUpdatingValidator>();
         }
         #endregion
     }

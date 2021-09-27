@@ -1,5 +1,5 @@
 ﻿using Application.Common.HTTPResponse;
-using Application.Common.Interfaces.Repositories.MemberRepo;
+using Application.Common.Interfaces.Repositories;
 using Application.Common.Interfaces.Services.MemberServices;
 using Application.Dtos.MemberDtos;
 using AutoMapper;
@@ -12,9 +12,9 @@ namespace Infrastructure.Services.MemberServices
 {
     public class MemberServiceImp:IMemberService
     {
-        private readonly IMemberRepo _memberRepository;
+        private readonly IRepository<Member> _memberRepository;
         private readonly IMapper _mapper;
-        public MemberServiceImp(IMemberRepo memberRepository,IMapper mapper)
+        public MemberServiceImp(IRepository<Member> memberRepository, IMapper mapper)
         {
             _memberRepository = memberRepository;
             _mapper = mapper;
@@ -23,7 +23,7 @@ namespace Infrastructure.Services.MemberServices
         {
             try
             {
-                Member member = _memberRepository.GetMemberByEmail(email);
+                Member member = _memberRepository.GetById(email);
                 if (member == null)
                 {
                     throw new Exception(ResponseMessage.CouldNotFound);
@@ -43,12 +43,8 @@ namespace Infrastructure.Services.MemberServices
             try
             {
                 Member member = _mapper.Map<Member>(memberCreateVM);
-                var result = _memberRepository.AddNewMember(member);
-                if (result < 1)
-                {
-                    throw new MemberManagementException(ResponseMessage.CreateFailed);
-                }
-                return ResponseModel<int>.Success(result, ResponseCode.OK, ResponseMessage.GetSuccessfully);
+                _memberRepository.Insert(member);
+                return ResponseModel<int>.Success(ResponseCode.OK, ResponseMessage.GetSuccessfully);
             }
             catch (Exception e)
             {
@@ -60,7 +56,7 @@ namespace Infrastructure.Services.MemberServices
             try
             {
                 Member member = _mapper.Map<Member>(memberUpdateVM);
-                var result = _memberRepository.UpdateMember(member);
+                var result = _memberRepository.Update(member);
                 if (result < 1)
                 {
                     throw new MemberManagementException(ResponseMessage.UpdateFailed);

@@ -9,6 +9,14 @@ namespace Application.Common.HTTPResponse
         public string Message { get; set; }
         public int TotalResults { get; set; }
         public int TotalRecordsInDb { get; set; }
+        public static ResponseModel<T> Success(ResponseCode responseCode, string message)
+        {
+            return new ResponseModel<T>
+            {
+                ResponseCode = responseCode,
+                Message=message
+            };
+        }
         public static ResponseModel<T> Success(ICollection<T> results, ResponseCode responseCode)
         {
             return new ResponseModel<T>

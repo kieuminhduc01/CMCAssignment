@@ -1,12 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Application.Common.Validators.MemberValidators;
+using Application.Dtos.MemberDtos;
+using FluentValidation;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Application
 {
-    class ValidationDeploy
+    public static class ValidationDeploy
     {
+        public static void AddValidation(this IServiceCollection services)
+        {
+            services.AddTransient<IValidator<MemberCreatingDto>, MemberCreatingValidator>();
+            services.AddTransient<IValidator<MemberUpdatingDto>, MemberUpdatingValidator>();
+        }
     }
 }

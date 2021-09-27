@@ -1,10 +1,7 @@
-﻿using Application.Common.HTTPResponse;
-using Application.Common.Interfaces.Services.MemberServices;
+﻿using Application.Common.Interfaces.Services.MemberServices;
 using Application.Dtos.MemberDtos;
-using Infrastructure.UserDefineException;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System;
 
 namespace WebAPI.Controllers
 {

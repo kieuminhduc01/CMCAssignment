@@ -1,16 +1,17 @@
-﻿using Domain.Entities;
+﻿using Application.Common.Interfaces;
+using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace Domain.Data
+namespace Infrastructure.Data
 {
-    public class DataContext: DbContext
+    public class ApplicationDBContext : DbContext,IApplicationDBContext
     {
         private const string Varchar255Type = "varchar(255)";
         private const string TextType = "text";
         private const string BoolType = "boolean";
         private const string TimeSpanType = "timestamp";
         private const string IntType = "int";
-        public DataContext(DbContextOptions options) : base(options)
+        public ApplicationDBContext(DbContextOptions options) : base(options)
         {
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -77,3 +78,4 @@ namespace Domain.Data
         #endregion
     }
 }
+

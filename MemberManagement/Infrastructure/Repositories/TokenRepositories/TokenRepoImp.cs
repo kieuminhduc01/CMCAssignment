@@ -1,14 +1,14 @@
 ﻿using Application.Common.Interfaces.Repositories.TokenRepo;
-using Domain.Data;
 using Domain.Entities;
+using Infrastructure.Data;
 using System.Linq;
 
 namespace Infrastructure.Repositories.TokenRepositories
 {
     public class TokenRepoImp : ITokenRepo
     {
-        private readonly DataContext _context;
-        public TokenRepoImp(DataContext context)
+        private readonly ApplicationDBContext _context;
+        public TokenRepoImp(ApplicationDBContext context)
         {
             _context = context;
         }
