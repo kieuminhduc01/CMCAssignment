@@ -1,6 +1,5 @@
 ﻿using Application.Common.HTTPResponse;
-using Application.Common.Interfaces.Repositories.MemberRepo;
-using Application.Common.Interfaces.Repositories.TokenRepo;
+using Application.Common.Interfaces.Repositories;
 using Application.Common.Interfaces.Services.TokenServices;
 using Application.Dtos.TokenDtos;
 using Domain.Entities;
@@ -18,20 +17,18 @@ namespace Infrastructure.Services.AuthenticateServices
     public class AuthenticateServiceImp : IAuthenticateService
     {
         private readonly IConfiguration _configuration;
-        private readonly IMemberRepo _memberRepository;
-        private readonly ITokenRepo _tokenRepository;
+        private readonly  _refreshTokenRepository;
         private const float lifeTimeOfToken = 15;
         private const float lifeTimeOfRefreshToken = 20;
-        public AuthenticateServiceImp(IConfiguration configuration, IMemberRepo memberRepository, ITokenRepo tokenRepository)
+        public AuthenticateServiceImp(IConfiguration configuration, IRepository<RefreshToken> refreshTokenRepository)
         {
             _configuration = configuration;
-            _memberRepository = memberRepository;
-            _tokenRepository = tokenRepository;
+            _refreshTokenRepository = refreshTokenRepository;
         }
         public AuthenticateGettingDto GetJWT(LoginRequestDto parLogin)
         {
 
-            var account = _memberRepository.GetMemberByUserNameAndPassword(parLogin.UserName, parLogin.Password);
+            var account = _refreshTokenRepository.GetMemberByUserNameAndPassword(parLogin.UserName, parLogin.Password);
             if (account == null)
             {
                 throw new MemberManagementException(ResponseMessage.LoginFail);

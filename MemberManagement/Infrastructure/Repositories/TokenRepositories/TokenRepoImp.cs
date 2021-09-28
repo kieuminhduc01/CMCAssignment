@@ -1,33 +1,20 @@
-﻿using Application.Common.Interfaces.Repositories.TokenRepo;
-using Domain.Entities;
+﻿using Domain.Entities;
 using Infrastructure.Data;
 using System.Linq;
 
 namespace Infrastructure.Repositories.TokenRepositories
 {
-    public class TokenRepoImp : ITokenRepo
+    public class TokenRepoImp : Repository<RefreshToken>
     {
         private readonly ApplicationDBContext _context;
-        public TokenRepoImp(ApplicationDBContext context)
+        public TokenRepoImp(ApplicationDBContext context):base(context)
         {
             _context = context;
-        }
-
-        public int AddNewRefreshToken(RefreshToken refreshToken)
-        {
-            _context.RefreshTokens.Add(refreshToken);
-            return _context.SaveChanges();
         }
 
         public RefreshToken GetTokenDetailByTokenCode(string tokenCode)
         {
             return _context.RefreshTokens.FirstOrDefault(x => x.Token.Equals(tokenCode));
-        }
-
-        public int UpdateRefreshToken(RefreshToken refreshToken)
-        {
-            _context.RefreshTokens.Update(refreshToken);
-            return _context.SaveChanges();
         }
         public RefreshToken GetTokenByTokenCodeAndRefreshTokenCode(string tokenCode, string refreshTokenCode)
         {
