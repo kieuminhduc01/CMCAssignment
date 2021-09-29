@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "fc4b6ff5-a46d-4fc7-9a6f-46103d6b6609": {
+      "ProjectGuid": "fc4b6ff5-a46d-4fc7-9a6f-46103d6b6609",
+      "DisplayName": "Infrastructure",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}
