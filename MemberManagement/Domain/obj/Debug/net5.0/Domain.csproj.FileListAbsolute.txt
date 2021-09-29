@@ -12,3 +12,4 @@ D:\CMC\Assigment\MemberManagement\Domain\obj\Debug\net5.0\Domain.dll
 D:\CMC\Assigment\MemberManagement\Domain\obj\Debug\net5.0\ref\Domain.dll
 D:\CMC\Assigment\MemberManagement\Domain\obj\Debug\net5.0\Domain.pdb
 D:\CMC\Assigment\MemberManagement\Domain\obj\Debug\net5.0\Domain.genruntimeconfig.cache
+D:\CMC\Assigment\MemberManagement\Domain\obj\Debug\net5.0\Domain.csproj.AssemblyReference.cache

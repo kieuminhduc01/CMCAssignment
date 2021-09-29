@@ -34,6 +34,11 @@ namespace WebAPI.Controllers
             var result = _memberService.Update(parMember);
             return Ok(result);
         }
-
+        [HttpDelete()]
+        public IActionResult DeleteMember(MemberUpdatingDto parMember)
+        {
+            var result = _memberService.DeletingMethodForTesingUnitOfWork(parMember);
+            return Ok(result);
+        }
     }
 }

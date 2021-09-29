@@ -1,6 +1,6 @@
 ﻿using Application.Common.Function;
 using Application.Common.HTTPResponse;
-using Application.Common.Interfaces.Repositories.MemberRepo;
+using Application.Common.Interfaces.Repositories.MemberRepositories;
 using Application.Dtos.MemberDtos;
 using FluentValidation;
 
@@ -8,10 +8,10 @@ namespace Application.Common.Validators.MemberValidators
 {
     public class MemberCreatingValidator: AbstractValidator<MemberCreatingDto>
     {
-        private readonly IMemberRepo _memberRepo;
-        public MemberCreatingValidator(IMemberRepo memberRepo)
+        private readonly IMemberRepository _memberRepository;
+        public MemberCreatingValidator(IMemberRepository memberRepository)
         {
-            _memberRepo = memberRepo;
+            _memberRepository = memberRepository;
 
             RuleFor(a => a.Name).NotNull().NotEmpty();
 
@@ -29,7 +29,7 @@ namespace Application.Common.Validators.MemberValidators
         }
         private bool IsEmailExist(string email)
         {
-            var member = _memberRepo.GetMemberByEmail(email);
+            var member = _memberRepository.GetById(email);
             if (member == null)
             {
                 return false;

@@ -1,10 +1,11 @@
-﻿using Domain.Entities;
+﻿using Application.Common.Interfaces.Repositories.TokenRepositories;
+using Domain.Entities;
 using Infrastructure.Data;
 using System.Linq;
 
 namespace Infrastructure.Repositories.TokenRepositories
 {
-    public class TokenRepoImp : Repository<RefreshToken>
+    public class TokenRepoImp : Repository<RefreshToken>,ITokenRepository
     {
         private readonly ApplicationDBContext _context;
         public TokenRepoImp(ApplicationDBContext context):base(context)
@@ -20,12 +21,11 @@ namespace Infrastructure.Repositories.TokenRepositories
         {
             return _context.RefreshTokens.FirstOrDefault(a => a.JwtId.Equals(tokenCode) && a.Token.Equals(refreshTokenCode));
         }
-        public int UpdateRevokedStatusForToken(string tokenRefreshCode)
+        public void UpdateRevokedStatusForToken(string tokenRefreshCode)
         {
             var storedRefreshToken = _context.RefreshTokens.FirstOrDefault(x => x.Token == tokenRefreshCode);
             storedRefreshToken.IsRevoked = true;
             _context.RefreshTokens.Update(storedRefreshToken);
-            return _context.SaveChanges();
         }
     }
 }

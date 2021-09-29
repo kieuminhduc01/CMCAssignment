@@ -8,5 +8,6 @@ namespace Application.Common.Interfaces.Services.MemberServices
         ResponseModel<int> Register(MemberCreatingDto memberCreateVM);
         ResponseModel<MemberGettingDto> GetMemberByEmail(string email);
         ResponseModel<int> Update(MemberUpdatingDto memberUpdateVM);
+        ResponseModel<int> DeletingMethodForTesingUnitOfWork(MemberUpdatingDto memberUpdateVM);
     }
 }
