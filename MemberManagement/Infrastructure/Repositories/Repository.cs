@@ -4,51 +4,43 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Infrastructure.Repositories
 {
     public class Repository<T> : IRepository<T> where T : class
     {
         private readonly ApplicationDBContext _context;
-        private DbSet<T> entities;
-
+        
         public Repository(ApplicationDBContext context)
         {
-            this._context = context;
-            this.entities = context.Set<T>();
+            _context = context;
         }
 
-        public IEnumerable<T> GetAll()
+        public async Task Add(T entity)
         {
-            return entities.AsEnumerable();
+            await _context.Set<T>().AddAsync(entity);
         }
-        public T GetById(object id)
-        {
-            return entities.Find(id);
-        }
-        public void Insert(T entity)
-        {
-            if (entity == null)
-            {
-                throw new ArgumentNullException();
-            }
-            entities.Add(entity);
-        }
-        public void Update(T entity)
-        {
-            if (entity == null)
-            {
-                throw new ArgumentNullException();
-            }
-            entities.Update(entity);
-        }
+
         public void Delete(T entity)
         {
-            if (entity == null)
-            {
-                throw new ArgumentNullException();
-            }
-            entities.Remove(entity);
+            _context.Set<T>().Remove(entity);
+        }
+
+        public async Task<T> Get(int id)
+        {
+            return await _context.Set<T>().FindAsync(id);
+        }
+
+        public async Task<IEnumerable<T>> GetAll()
+        {
+            return await _context.Set<T>().ToListAsync();
+        }
+
+        public void Update(T entity)
+        {
+            _context.Set<T>().Update(entity);
+                ;
         }
     }
 }

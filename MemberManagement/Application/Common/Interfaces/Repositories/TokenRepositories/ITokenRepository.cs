@@ -1,11 +1,12 @@
 ﻿using Domain.Entities;
+using System.Threading.Tasks;
 
 namespace Application.Common.Interfaces.Repositories.TokenRepositories
 {
-    public interface ITokenRepository:IRepository<RefreshToken>
+    public interface ITokenRepository : IRepository<RefreshToken>
     {
-        RefreshToken GetTokenDetailByTokenCode(string tokenCode);
-        RefreshToken GetTokenByTokenCodeAndRefreshTokenCode(string tokenCode, string refreshTokenCode);
-        void UpdateRevokedStatusForToken(string tokenRefreshCode);
+        Task<RefreshToken> GetTokenDetailByTokenCode(string tokenCode);
+        Task<RefreshToken> GetTokenByTokenCodeAndRefreshTokenCode(string tokenCode, string refreshTokenCode);
+        Task UpdateRevokedStatusForToken(string tokenRefreshCode);
     }
 }

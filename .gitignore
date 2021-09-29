@@ -6,3 +6,7 @@ Debug
 obj
 packages
 MemberManagement/WebAPI/obj/Debug
+MemberManagement/NUnitTest/obj/Debug
+MemberManagement/WebAPI/obj
+MemberManagement/Domain/obj
+MemberManagement/Infrastructure/obj

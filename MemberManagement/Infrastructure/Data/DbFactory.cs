@@ -16,7 +16,11 @@ namespace Infrastructure.Data
         }
         public void Dispose()
         {
-            throw new NotImplementedException();
+            if (!_disposed && _dbContext != null)
+            {
+                _disposed = true;
+                _dbContext.Dispose();
+            }
         }
     }
 }
