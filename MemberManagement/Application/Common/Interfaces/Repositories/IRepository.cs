@@ -6,8 +6,8 @@ namespace Application.Common.Interfaces.Repositories
     {
         IEnumerable<T> GetAll();
         T GetById(object id);
-        int Insert(T entity);
-        int Delete(T entity);
-        int Update(T entity);
+        void Insert(T entity);
+        void Delete(T entity);
+        void Update(T entity);
     }
 }

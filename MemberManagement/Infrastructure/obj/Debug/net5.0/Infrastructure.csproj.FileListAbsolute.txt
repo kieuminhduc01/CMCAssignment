@@ -15,3 +15,6 @@ D:\CMC\Assigment\MemberManagement\Infrastructure\obj\Debug\net5.0\Infrastructure
 D:\CMC\Assigment\MemberManagement\Infrastructure\obj\Debug\net5.0\Infrastructure.dll
 D:\CMC\Assigment\MemberManagement\Infrastructure\obj\Debug\net5.0\ref\Infrastructure.dll
 D:\CMC\Assigment\MemberManagement\Infrastructure\obj\Debug\net5.0\Infrastructure.pdb
+D:\CMC\Assigment\MemberManagement\Infrastructure\bin\Debug\net5.0\Infrastructure.runtimeconfig.json
+D:\CMC\Assigment\MemberManagement\Infrastructure\bin\Debug\net5.0\Infrastructure.runtimeconfig.dev.json
+D:\CMC\Assigment\MemberManagement\Infrastructure\obj\Debug\net5.0\Infrastructure.genruntimeconfig.cache

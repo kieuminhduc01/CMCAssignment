@@ -41,7 +41,6 @@ namespace WebAPI
 
             services.AddValidation();
             services.AddControllers();
-
             services.AddTransient<ApplicationDBContext>();
             services.AddSwaggerGen(c =>
             {
@@ -58,17 +57,17 @@ namespace WebAPI
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "WebAPI v1"));
             }
-            app.ConfigureExceptionHandler();
-
-            app.UseHttpsRedirection();
             app.UseRouting();
 
             app.UseAuthentication();
             app.UseAuthorization();
+            app.ConfigureExceptionHandler();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
             });
+            //app.UseMiddleware<HandlerMiddlewareException>();
+            //app.UseHttpsRedirection();
         }
 
         #region Private function

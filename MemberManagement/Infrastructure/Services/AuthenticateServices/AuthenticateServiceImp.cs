@@ -1,5 +1,8 @@
-﻿using Application.Common.HTTPResponse;
+﻿using Application;
+using Application.Common.HTTPResponse;
 using Application.Common.Interfaces.Repositories;
+using Application.Common.Interfaces.Repositories.MemberRepositories;
+using Application.Common.Interfaces.Repositories.TokenRepositories;
 using Application.Common.Interfaces.Services.TokenServices;
 using Application.Dtos.TokenDtos;
 using Domain.Entities;
@@ -17,21 +20,25 @@ namespace Infrastructure.Services.AuthenticateServices
     public class AuthenticateServiceImp : IAuthenticateService
     {
         private readonly IConfiguration _configuration;
-        private readonly  _refreshTokenRepository;
+        private readonly ITokenRepository _refreshTokenRepository;
+        private readonly IMemberRepository _memberRepository;
+        private readonly IUnitOfWork _unitOfWork;
         private const float lifeTimeOfToken = 15;
         private const float lifeTimeOfRefreshToken = 20;
-        public AuthenticateServiceImp(IConfiguration configuration, IRepository<RefreshToken> refreshTokenRepository)
+        public AuthenticateServiceImp(IConfiguration configuration, ITokenRepository refreshTokenRepository, IMemberRepository memberRepository,IUnitOfWork unitOfWork)
         {
             _configuration = configuration;
             _refreshTokenRepository = refreshTokenRepository;
+            _memberRepository = memberRepository;
+            _unitOfWork = unitOfWork;
         }
         public AuthenticateGettingDto GetJWT(LoginRequestDto parLogin)
         {
 
-            var account = _refreshTokenRepository.GetMemberByUserNameAndPassword(parLogin.UserName, parLogin.Password);
+            var account = _memberRepository.GetMemberByUserNameAndPassword(parLogin.UserName, parLogin.Password);
             if (account == null)
             {
-                throw new MemberManagementException(ResponseMessage.LoginFail);
+                throw new AppException(ResponseMessage.LoginFail);
             }
             return GetJwtTokenByAccount(account);
 
@@ -40,50 +47,51 @@ namespace Infrastructure.Services.AuthenticateServices
         {
 
             // is token exist in db ?
-            var token = _tokenRepository.GetTokenByTokenCodeAndRefreshTokenCode(authenticateRequest.TokenCode, authenticateRequest.TokenRefeshCode);
+            var token = _refreshTokenRepository.GetTokenByTokenCodeAndRefreshTokenCode(authenticateRequest.TokenCode, authenticateRequest.TokenRefeshCode);
             if (token == null)
             {
-                throw new MemberManagementException(ResponseMessage.RefreshTokenNotValid);
+                throw new AppException(ResponseMessage.RefreshTokenNotValid);
             }
 
             // is token revoked (after logout)
             if (token.IsRevoked)
             {
-                throw new MemberManagementException(ResponseMessage.TokenHasBeenRevoked);
+                throw new AppException(ResponseMessage.TokenHasBeenRevoked);
             }
 
             // is token expired, If no -> dont allow refresh
             if (token.DeathTime > DateTime.UtcNow)
             {
-                throw new MemberManagementException(ResponseMessage.TokenNotExpired);
+                throw new AppException(ResponseMessage.TokenNotExpired);
             }
 
             // is token expired, If yes -> dont allow refresh, user have to login
             if (token.ExpiryDate < DateTime.UtcNow)
             {
-                throw new MemberManagementException(ResponseMessage.TokenExpired);
+                throw new AppException(ResponseMessage.TokenExpired);
             }
 
             // is token used, If yes -> dont allow refresh
             if (token.IsUsed)
             {
-                throw new MemberManagementException(ResponseMessage.TokenUsed);
+                throw new AppException(ResponseMessage.TokenUsed);
             }
 
             // can refresh token and it will be create new token that replace old token
             token.IsUsed = true;
-            _tokenRepository.UpdateRefreshToken(token);
+            _refreshTokenRepository.Update(token);
 
             // Trả về 1 Token mới
-            var member = _memberRepository.GetMemberByEmail(token.Email);
+            var member = _memberRepository.GetById(token.Email);
             return GetJwtTokenByAccount(member);
 
         }
         public bool RevokeToken(RefreshTokenDto authenticateRequest)
         {
 
-            int res = _tokenRepository.UpdateRevokedStatusForToken(authenticateRequest.TokenRefeshCode);
-            if (res > 0)
+            _refreshTokenRepository.UpdateRevokedStatusForToken(authenticateRequest.TokenRefeshCode);
+           var ressult= _unitOfWork.Commit();
+            if (ressult > 0)
             {
                 return true;
             }
@@ -129,7 +137,7 @@ namespace Infrastructure.Services.AuthenticateServices
                 Token = RandomString(25) + Guid.NewGuid()
             };
 
-            _tokenRepository.AddNewRefreshToken(refreshToken);
+            _refreshTokenRepository.Insert(refreshToken);
 
             return new AuthenticateGettingDto
             {

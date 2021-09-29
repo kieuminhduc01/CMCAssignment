@@ -526,6 +526,8 @@
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
           "Application": "1.0.0",
+          "Microsoft.EntityFrameworkCore": "5.0.10",
+          "Npgsql.EntityFrameworkCore.PostgreSQL": "5.0.10",
           "System.IdentityModel.Tokens.Jwt": "6.12.2"
         },
         "compile": {

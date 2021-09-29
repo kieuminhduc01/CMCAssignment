@@ -1,5 +1,4 @@
 ﻿using Application.Common.Interfaces.Repositories;
-using Domain.Entities;
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -12,7 +11,6 @@ namespace Infrastructure.Repositories
     {
         private readonly ApplicationDBContext _context;
         private DbSet<T> entities;
-        string errorMessage = string.Empty;
 
         public Repository(ApplicationDBContext context)
         {
@@ -28,31 +26,29 @@ namespace Infrastructure.Repositories
         {
             return entities.Find(id);
         }
-        public int Insert(T entity)
+        public void Insert(T entity)
         {
             if (entity == null)
             {
                 throw new ArgumentNullException();
             }
             entities.Add(entity);
-            return _context.SaveChanges();
         }
-        public int Update(T entity)
+        public void Update(T entity)
         {
             if (entity == null)
             {
                 throw new ArgumentNullException();
             }
-            return _context.SaveChanges();
+            entities.Update(entity);
         }
-        public int Delete(T entity)
+        public void Delete(T entity)
         {
             if (entity == null)
             {
                 throw new ArgumentNullException();
             }
             entities.Remove(entity);
-            return _context.SaveChanges();
         }
     }
 }
