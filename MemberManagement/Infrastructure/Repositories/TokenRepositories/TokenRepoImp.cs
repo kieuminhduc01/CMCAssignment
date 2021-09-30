@@ -2,6 +2,7 @@
 using Domain.Entities;
 using Infrastructure.Data;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Infrastructure.Repositories.TokenRepositories
 {
@@ -13,19 +14,34 @@ namespace Infrastructure.Repositories.TokenRepositories
             _context = context;
         }
 
-        public RefreshToken GetTokenDetailByTokenCode(string tokenCode)
+        public Task<RefreshToken> GetTokenDetailByTokenCode(string tokenCode)
         {
-            return _context.RefreshTokens.FirstOrDefault(x => x.Token.Equals(tokenCode));
+            return  _context.RefreshTokens.Where(x => x.Token.Equals(tokenCode));
         }
-        public RefreshToken GetTokenByTokenCodeAndRefreshTokenCode(string tokenCode, string refreshTokenCode)
+        public Task<RefreshToken> GetTokenByTokenCodeAndRefreshTokenCode(string tokenCode, string refreshTokenCode)
         {
-            return _context.RefreshTokens.FirstOrDefault(a => a.JwtId.Equals(tokenCode) && a.Token.Equals(refreshTokenCode));
+            return _context.RefreshTokens.AsQueryable().FirstOrDefaultAsync(a => a.JwtId.Equals(tokenCode) && a.Token.Equals(refreshTokenCode));
         }
-        public void UpdateRevokedStatusForToken(string tokenRefreshCode)
+        public Task UpdateRevokedStatusForToken(string tokenRefreshCode)
         {
-            var storedRefreshToken = _context.RefreshTokens.FirstOrDefault(x => x.Token == tokenRefreshCode);
+            var storedRefreshToken = await _context.RefreshTokens.AsQueryable().FirstOrDefault(x => x.Token == tokenRefreshCode);
             storedRefreshToken.IsRevoked = true;
             _context.RefreshTokens.Update(storedRefreshToken);
+        }
+
+        Task<RefreshToken> ITokenRepository.GetTokenDetailByTokenCode(string tokenCode)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        Task<RefreshToken> ITokenRepository.GetTokenByTokenCodeAndRefreshTokenCode(string tokenCode, string refreshTokenCode)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        Task ITokenRepository.UpdateRevokedStatusForToken(string tokenRefreshCode)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

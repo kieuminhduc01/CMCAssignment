@@ -1,12 +1,13 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Application.Common.Interfaces.Repositories
 {
-    public interface IRepository<T> 
+    public interface IRepository<T> where T : class
     {
-        IEnumerable<T> GetAll();
-        T GetById(object id);
-        void Insert(T entity);
+        Task<T> Get(int id);
+        Task<IEnumerable<T>> GetAll();
+        Task Add(T entity);
         void Delete(T entity);
         void Update(T entity);
     }
