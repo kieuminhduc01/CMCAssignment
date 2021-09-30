@@ -6,3 +6,4 @@ Debug
 obj
 packages
 MemberManagement/WebAPI/obj/Debug
+MemberManagement/Infrastructure/obj/Debug/net5.0
