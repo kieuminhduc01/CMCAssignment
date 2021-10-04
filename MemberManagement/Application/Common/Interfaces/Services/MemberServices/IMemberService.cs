@@ -1,13 +1,14 @@
 ﻿using Application.Common.HTTPResponse;
 using Application.Dtos.MemberDtos;
+using System.Threading.Tasks;
 
 namespace Application.Common.Interfaces.Services.MemberServices
 {
     public interface IMemberService
     {
         ResponseModel<int> Register(MemberCreatingDto memberCreateVM);
-        ResponseModel<MemberGettingDto> GetMemberByEmail(string email);
-        ResponseModel<int> Update(MemberUpdatingDto memberUpdateVM);
-        ResponseModel<int> DeletingMethodForTesingUnitOfWork(MemberUpdatingDto memberUpdateVM);
+        Task<ResponseModel<MemberGettingDto>> GetMemberByEmail(string email);
+        Task<ResponseModel<int>> Update(MemberUpdatingDto memberUpdateVM);
+        Task<ResponseModel<int>> DeletingMethodForTesingUnitOfWork(MemberUpdatingDto memberUpdateVM);
     }
 }

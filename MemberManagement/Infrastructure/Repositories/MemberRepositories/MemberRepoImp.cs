@@ -1,7 +1,8 @@
 ﻿using Application.Common.Interfaces.Repositories.MemberRepositories;
 using Domain.Entities;
-using Infrastructure.Common;
-    using Infrastructure.Data;
+using Infrastructure.Data;
+using Microsoft.EntityFrameworkCore;
+using System.Threading.Tasks;
 
 namespace Infrastructure.Repositories.MemberRepositories
 {
@@ -10,10 +11,9 @@ namespace Infrastructure.Repositories.MemberRepositories
         public MemberRepoImp(ApplicationDBContext context) : base(context)
         {
         }
-        public async Member GetMemberByUserNameAndPassword(string username, string password)
+        public async Task<Member> GetMemberByUserNameAndPassword(string username, string password)
         {
-           return await _context
+            return await _context.Members.FirstOrDefaultAsync(a => a.Email.Equals(username) && a.Password.Equals(password));
         }
-
     }
 }

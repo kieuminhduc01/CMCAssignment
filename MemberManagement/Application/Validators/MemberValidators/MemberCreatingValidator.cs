@@ -3,6 +3,7 @@ using Application.Common.HTTPResponse;
 using Application.Common.Interfaces.Repositories.MemberRepositories;
 using Application.Dtos.MemberDtos;
 using FluentValidation;
+using System.Threading.Tasks;
 
 namespace Application.Common.Validators.MemberValidators
 {
@@ -16,8 +17,7 @@ namespace Application.Common.Validators.MemberValidators
             RuleFor(a => a.Name).NotNull().NotEmpty();
 
             RuleFor(a => a.Email).NotNull().NotEmpty()
-                .Must(a => a.EmailValidate()).WithMessage(ResponseMessage.EmailInvalid)
-                .Must(a => !IsEmailExist(a)).WithMessage(ResponseMessage.EmailExist);
+                .Must(a => a.EmailValidate()).WithMessage(ResponseMessage.EmailInvalid);
 
             RuleFor(a => a.Password).NotNull().NotEmpty();
             RuleFor(a => a.MobileNumber).NotNull().NotEmpty().Must(a => a.PhoneNumberValidate())
@@ -27,9 +27,9 @@ namespace Application.Common.Validators.MemberValidators
             RuleFor(a => a.Gender).Must(a=>a.GenderValidate()).WithMessage(ResponseMessage.GenderInvalid);
             RuleFor(a => a.Dob).NotNull().NotEmpty();
         }
-        private bool IsEmailExist(string email)
+        private async Task<bool> IsEmailExist(string email)
         {
-            var member = _memberRepository.GetById(email);
+            var member =await _memberRepository.Get(email);
             if (member == null)
             {
                 return false;

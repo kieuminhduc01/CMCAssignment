@@ -5,9 +5,9 @@ namespace Application.Common.Interfaces.Repositories
 {
     public interface IRepository<T> where T : class
     {
-        Task<T> Get(int id);
+        Task<T> Get(object id);
         Task<IEnumerable<T>> GetAll();
-        Task Add(T entity);
+        void Add(T entity);
         void Delete(T entity);
         void Update(T entity);
     }

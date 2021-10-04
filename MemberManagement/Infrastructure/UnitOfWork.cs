@@ -2,22 +2,18 @@
 using Application.Common.Interfaces.Repositories.MemberRepositories;
 using Application.Common.Interfaces.Repositories.TokenRepositories;
 using Infrastructure.Data;
-using System;
-
 namespace Infrastructure
 {
     public class UnitOfWork : IUnitOfWork
     {
-        private readonly ApplicationDBContext _context;
-        public IMemberRepository Members { get; }
+        private ApplicationDBContext _context;
+        private IMemberRepository _members;
         public ITokenRepository Tokens { get; }
 
-
-        public UnitOfWork(ApplicationDBContext context,IMemberRepository memberRepository,ITokenRepository tokenRepository)
+        public UnitOfWork(ApplicationDBContext context, IMemberRepository member)
         {
-            this._context = context;
-            this.Tokens = tokenRepository;
-            this.Members = memberRepository;
+            _context = context;
+            _members = member;
         }
         public int Complete()
         {
@@ -25,15 +21,12 @@ namespace Infrastructure
         }
         public void Dispose()
         {
-            Dispose(true);
-            GC.SuppressFinalize(this);  
+            _context.Dispose();
         }
-        protected virtual void Dispose(bool disposing)
+
+        public IMemberRepository Members()
         {
-            if (disposing)
-            {
-                _context.Dispose();
-            }
+            return _members;
         }
     }
 }

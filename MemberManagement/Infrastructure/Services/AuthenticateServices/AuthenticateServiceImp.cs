@@ -1,8 +1,5 @@
 ﻿using Application;
 using Application.Common.HTTPResponse;
-using Application.Common.Interfaces.Repositories;
-using Application.Common.Interfaces.Repositories.MemberRepositories;
-using Application.Common.Interfaces.Repositories.TokenRepositories;
 using Application.Common.Interfaces.Services.TokenServices;
 using Application.Dtos.TokenDtos;
 using Domain.Entities;
@@ -14,28 +11,25 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Infrastructure.Services.AuthenticateServices
 {
     public class AuthenticateServiceImp : IAuthenticateService
     {
         private readonly IConfiguration _configuration;
-        private readonly ITokenRepository _refreshTokenRepository;
-        private readonly IMemberRepository _memberRepository;
         private readonly IUnitOfWork _unitOfWork;
         private const float lifeTimeOfToken = 15;
         private const float lifeTimeOfRefreshToken = 20;
-        public AuthenticateServiceImp(IConfiguration configuration, ITokenRepository refreshTokenRepository, IMemberRepository memberRepository,IUnitOfWork unitOfWork)
+        public AuthenticateServiceImp(IConfiguration configuration,IUnitOfWork unitOfWork)
         {
             _configuration = configuration;
-            _refreshTokenRepository = refreshTokenRepository;
-            _memberRepository = memberRepository;
             _unitOfWork = unitOfWork;
         }
-        public AuthenticateGettingDto GetJWT(LoginRequestDto parLogin)
+        public async Task<AuthenticateGettingDto> GetJWT(LoginRequestDto parLogin)
         {
 
-            var account = _memberRepository.GetMemberByUserNameAndPassword(parLogin.UserName, parLogin.Password);
+            var account =await _unitOfWork.Members().GetMemberByUserNameAndPassword(parLogin.UserName, parLogin.Password);
             if (account == null)
             {
                 throw new AppException(ResponseMessage.LoginFail);
@@ -43,11 +37,11 @@ namespace Infrastructure.Services.AuthenticateServices
             return GetJwtTokenByAccount(account);
 
         }
-        public AuthenticateGettingDto VerifyJWT(RefreshTokenDto authenticateRequest)
+        public async Task<AuthenticateGettingDto> VerifyJWT(RefreshTokenDto authenticateRequest)
         {
 
             // is token exist in db ?
-            var token = _refreshTokenRepository.GetTokenByTokenCodeAndRefreshTokenCode(authenticateRequest.TokenCode, authenticateRequest.TokenRefeshCode);
+            var token =await _unitOfWork.Tokens.GetTokenByTokenCodeAndRefreshTokenCode(authenticateRequest.TokenCode, authenticateRequest.TokenRefeshCode);
             if (token == null)
             {
                 throw new AppException(ResponseMessage.RefreshTokenNotValid);
@@ -79,18 +73,18 @@ namespace Infrastructure.Services.AuthenticateServices
 
             // can refresh token and it will be create new token that replace old token
             token.IsUsed = true;
-            _refreshTokenRepository.Update(token);
+            _unitOfWork.Tokens.Update(token);
 
             // Trả về 1 Token mới
-            var member = _memberRepository.GetById(token.Email);
+            var member =await _unitOfWork.Members().Get(token.Email);
             return GetJwtTokenByAccount(member);
 
         }
-        public bool RevokeToken(RefreshTokenDto authenticateRequest)
+        public async Task<bool> RevokeToken(RefreshTokenDto authenticateRequest)
         {
 
-            _refreshTokenRepository.UpdateRevokedStatusForToken(authenticateRequest.TokenRefeshCode);
-           var ressult= _unitOfWork.Commit();
+           await _unitOfWork.Tokens.UpdateRevokedStatusForToken(authenticateRequest.TokenRefeshCode);
+           var ressult= _unitOfWork.Complete();
             if (ressult > 0)
             {
                 return true;
@@ -137,7 +131,7 @@ namespace Infrastructure.Services.AuthenticateServices
                 Token = RandomString(25) + Guid.NewGuid()
             };
 
-            _refreshTokenRepository.Insert(refreshToken);
+            _unitOfWork.Tokens.Add(refreshToken);
 
             return new AuthenticateGettingDto
             {

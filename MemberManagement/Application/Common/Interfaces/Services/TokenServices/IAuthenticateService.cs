@@ -1,11 +1,12 @@
 ﻿using Application.Dtos.TokenDtos;
+using System.Threading.Tasks;
 
 namespace Application.Common.Interfaces.Services.TokenServices
 {
     public interface IAuthenticateService
     {
-        AuthenticateGettingDto GetJWT(LoginRequestDto parLogin);
-        AuthenticateGettingDto VerifyJWT(RefreshTokenDto authenticateRequest);
-        bool RevokeToken(RefreshTokenDto authenticateRequest);
+        Task<AuthenticateGettingDto> GetJWT(LoginRequestDto parLogin);
+        Task<AuthenticateGettingDto> VerifyJWT(RefreshTokenDto authenticateRequest);
+        Task<bool> RevokeToken(RefreshTokenDto authenticateRequest);
     }
 }

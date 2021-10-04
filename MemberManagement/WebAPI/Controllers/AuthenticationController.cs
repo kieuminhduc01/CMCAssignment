@@ -2,6 +2,7 @@
 using Application.Dtos.TokenDtos;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace WebAPI.Controllers
 {
@@ -17,22 +18,22 @@ namespace WebAPI.Controllers
         }
         [HttpPost("login")]
         [AllowAnonymous]
-        public IActionResult Login(LoginRequestDto parLogin)
+        public async Task<IActionResult> Login(LoginRequestDto parLogin)
         {
-            var result = _authenticateService.GetJWT(parLogin);
+            var result =await _authenticateService.GetJWT(parLogin);
             return Ok(result);
         }
         [HttpPut("refresh")]
         [AllowAnonymous]
-        public IActionResult RefreshToken(RefreshTokenDto authenticateRequest)
+        public async Task<IActionResult> RefreshToken(RefreshTokenDto authenticateRequest)
         {
-            var result = _authenticateService.VerifyJWT(authenticateRequest);
+            var result =await _authenticateService.VerifyJWT(authenticateRequest);
             return Ok(result);
         }
         [HttpPut("logout")]
-        public IActionResult RevokeToken(RefreshTokenDto authenticateRequest)
+        public async Task<IActionResult> RevokeToken(RefreshTokenDto authenticateRequest)
         {
-            var result = _authenticateService.RevokeToken(authenticateRequest);
+            var result =await _authenticateService.RevokeToken(authenticateRequest);
             return Ok(result);
         }
     }

@@ -1,6 +1,5 @@
 using Application;
 using Application.AutoMappers;
-using Domain.Data;
 using FluentValidation.AspNetCore;
 using Infrastructure;
 using Infrastructure.Data;
@@ -32,7 +31,8 @@ namespace WebAPI
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddDependencyInjection();
+            services.AddRepository();
+            services.AddServices();
             services.AddDbContext<ApplicationDBContext>(option => option.UseNpgsql(Configuration.GetConnectionString("DatabaseConnection")));
 
             services.AddAutoMapper(typeof(AutoMapperMember).Assembly);
@@ -41,7 +41,6 @@ namespace WebAPI
 
             services.AddValidation();
             services.AddControllers();
-            services.AddTransient<ApplicationDBContext>();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "WebAPI", Version = "v1" });
@@ -57,6 +56,7 @@ namespace WebAPI
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "WebAPI v1"));
             }
+            app.UseHttpsRedirection();
             app.UseRouting();
 
             app.UseAuthentication();
@@ -66,8 +66,6 @@ namespace WebAPI
             {
                 endpoints.MapControllers();
             });
-            //app.UseMiddleware<HandlerMiddlewareException>();
-            //app.UseHttpsRedirection();
         }
 
         #region Private function
