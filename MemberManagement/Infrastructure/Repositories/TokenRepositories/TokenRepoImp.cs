@@ -22,7 +22,7 @@ namespace Infrastructure.Repositories.TokenRepositories
         public async Task UpdateRevokedStatusForToken(string tokenRefreshCode)
         {
             var storedRefreshToken = await _context.RefreshTokens.FirstOrDefaultAsync(x => x.Token.Equals(tokenRefreshCode));
-            storedRefreshToken.IsRevoked = true;
+            storedRefreshToken.IsRevoked = true; 
             _context.RefreshTokens.Update(storedRefreshToken);
         }
         Task<RefreshToken> ITokenRepository.GetTokenDetailByTokenCode(string tokenCode)
