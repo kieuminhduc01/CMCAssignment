@@ -4,7 +4,7 @@ using System;
 
 namespace Infrastructure.Business.Commands.AddMemberCommand
 {
-    public class AddMemberCommand : INotification<bool>
+    public class AddMemberCommand : IRequest<bool>
     {
         public string Email { get; set; }
         public string Name { get; set; }

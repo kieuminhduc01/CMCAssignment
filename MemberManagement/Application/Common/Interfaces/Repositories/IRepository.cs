@@ -7,8 +7,8 @@ namespace Application.Common.Interfaces.Repositories
     {
         Task<T> Get(object id);
         Task<IEnumerable<T>> GetAll();
-        void Add(T entity);
-        void Delete(T entity);
-        void Update(T entity);
+        Task Add(T entity);
+        Task Delete(T entity);
+        Task Update(T entity);
     }
 }

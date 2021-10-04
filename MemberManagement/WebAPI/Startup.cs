@@ -34,7 +34,6 @@ namespace WebAPI
             services.AddRepository();
             services.AddServices();
             services.AddDbContext<ApplicationDBContext>(option => option.UseNpgsql(Configuration.GetConnectionString("DatabaseConnection")));
-
             services.AddAutoMapper(typeof(AutoMapperMember).Assembly);
             services.AddControllers().AddFluentValidation();
             AddAuthentication(services);

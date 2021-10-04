@@ -16,15 +16,14 @@ namespace Infrastructure.Repositories
             _entities = context.Set<T>();
         }
 
-        public void Add(T entity)
+        public async Task Add(T entity)
         {
-            _entities.Add(entity);
-            //_context.SaveChanges();
+            await _entities.AddAsync(entity);
         }
 
-        public void Delete(T entity)
+        public async Task Delete(T entity)
         {
-            _context.Set<T>().Remove(entity);
+             _context.Set<T>().Remove(entity);
         }
 
         public async Task<T> Get(object id)
@@ -37,10 +36,9 @@ namespace Infrastructure.Repositories
             return await _context.Set<T>().ToListAsync();
         }
 
-        public void Update(T entity)
+        public async Task Update(T entity)
         {
             _context.Set<T>().Update(entity);
-            ;
         }
     }
 }

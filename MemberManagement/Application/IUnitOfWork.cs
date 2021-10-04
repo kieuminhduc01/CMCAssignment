@@ -1,13 +1,14 @@
 ﻿using Application.Common.Interfaces.Repositories.MemberRepositories;
 using Application.Common.Interfaces.Repositories.TokenRepositories;
 using System;
+using System.Threading.Tasks;
 
 namespace Application
 {
     public interface IUnitOfWork : IDisposable
     {
-        IMemberRepository Members();
+        IMemberRepository Members { get; }
         ITokenRepository Tokens {  get; }
-        int Complete();
+        Task<int> Complete();
     }
 }

@@ -22,7 +22,7 @@ namespace Infrastructure.Services.MemberServices
         public async Task<ResponseModel<MemberGettingDto>> GetMemberByEmail(string email)
         {
 
-            Member member = await _unitOfWork.Members().Get(email);
+            Member member = await _unitOfWork.Members.Get(email);
             if (member == null)
             {
                 throw new Exception(ResponseMessage.CouldNotFound);
@@ -36,14 +36,14 @@ namespace Infrastructure.Services.MemberServices
         public ResponseModel<int> Register(MemberCreatingDto memberCreateVM)
         {
             Member member = _mapper.Map<Member>(memberCreateVM);
-            _unitOfWork.Members().Add(member);
+            _unitOfWork.Members.Add(member);
             _unitOfWork.Complete();
             return ResponseModel<int>.Success(ResponseCode.OK, ResponseMessage.CreateSuccessfully);
         }
         public async Task<ResponseModel<int>> Update(MemberUpdatingDto memberUpdateVM)
         {
             Member member = _mapper.Map<Member>(memberUpdateVM);
-            _unitOfWork.Members().Update(member);
+            _unitOfWork.Members.Update(member);
             _unitOfWork.Complete();
             return ResponseModel<int>.Success(ResponseCode.OK, ResponseMessage.GetSuccessfully);
         }
@@ -51,8 +51,8 @@ namespace Infrastructure.Services.MemberServices
         public ResponseModel<int> DeletingMethodForTesingUnitOfWork(MemberUpdatingDto memberUpdateVM)
         {
             Member member = _mapper.Map<Member>(memberUpdateVM);
-            _unitOfWork.Members().Delete(member);
-            _unitOfWork.Members().Update(member);
+            _unitOfWork.Members.Delete(member);
+            _unitOfWork.Members.Update(member);
             _unitOfWork.Complete();
             return ResponseModel<int>.Success(ResponseCode.OK, ResponseMessage.DeleteSuccessfully);
         }

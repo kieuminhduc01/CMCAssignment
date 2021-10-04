@@ -29,7 +29,7 @@ namespace Infrastructure.Services.AuthenticateServices
         public async Task<AuthenticateGettingDto> GetJWT(LoginRequestDto parLogin)
         {
 
-            var account =await _unitOfWork.Members().GetMemberByUserNameAndPassword(parLogin.UserName, parLogin.Password);
+            var account =await _unitOfWork.Members.GetMemberByUserNameAndPassword(parLogin.UserName, parLogin.Password);
             if (account == null)
             {
                 throw new AppException(ResponseMessage.LoginFail);
@@ -76,7 +76,7 @@ namespace Infrastructure.Services.AuthenticateServices
             _unitOfWork.Tokens.Update(token);
 
             // Trả về 1 Token mới
-            var member =await _unitOfWork.Members().Get(token.Email);
+            var member =await _unitOfWork.Members.Get(token.Email);
             return GetJwtTokenByAccount(member);
 
         }
@@ -85,10 +85,7 @@ namespace Infrastructure.Services.AuthenticateServices
 
            await _unitOfWork.Tokens.UpdateRevokedStatusForToken(authenticateRequest.TokenRefeshCode);
            var ressult= _unitOfWork.Complete();
-            if (ressult > 0)
-            {
-                return true;
-            }
+            
             return false;
 
         }
