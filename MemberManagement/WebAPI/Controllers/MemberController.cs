@@ -1,5 +1,7 @@
-﻿using Application.Common.Interfaces.Services.MemberServices;
+﻿using Application.Business.Commands.AddMemberCommand;
+using Application.Common.Interfaces.Services.MemberServices;
 using Application.Dtos.MemberDtos;
+using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
@@ -12,6 +14,7 @@ namespace WebAPI.Controllers
     public class MemberController : ControllerBase
     {
         private readonly IMemberService _memberService;
+        private readonly IMediator _mediator;
         public MemberController(IMemberService memberService)
         {
             _memberService = memberService;
@@ -20,7 +23,12 @@ namespace WebAPI.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> Register(MemberCreatingDto parMember)
         {
-            var result = _memberService.Register(parMember);
+            //var result = _memberService.Register(parMember);
+            var result = await _mediator.Send(new AddMemberCommand
+            {
+                Email ="",
+                // TODO
+            });
             return Ok(result);
         }
         [HttpGet("{email}")]

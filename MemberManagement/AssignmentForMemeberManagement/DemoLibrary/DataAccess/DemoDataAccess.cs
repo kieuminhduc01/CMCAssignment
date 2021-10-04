@@ -2,7 +2,7 @@
 
 namespace DemoLibrary.DataAccess
 {
-    public class DemoDataAccess
+    public class DemoDataAccess : IDataAccess
     {
         private List<PersonModel> people = new();
         public DemoDataAccess()
@@ -14,12 +14,12 @@ namespace DemoLibrary.DataAccess
         {
             return people;
         }
-        public PersonModel InsertPerson(string firstName,string lastName)
+        public PersonModel InsertPerson(string firstName, string lastName)
         {
             PersonModel p = new() { FirstName = firstName, LastName = lastName };
-            p.Id = people.Max(a => a.Id)+1;
+            p.Id = people.Max(a => a.Id) + 1;
             people.Add(p);
-            return p;   
+            return p;
         }
     }
 }
